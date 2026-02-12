@@ -1,6 +1,11 @@
 # 🛒 Mini Cart Pro
 <p align="center">
-    <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React"/><img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/><img src="https://img.shields.io/badge/Redux_Toolkit-Architecture-764ABC?style=for-the-badge&logo=redux&logoColor=white" alt="Redux Toolkit"/><img src="https://img.shields.io/badge/Vite-Dev_Environment-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"/><img src="https://img.shields.io/badge/Status-In_Progress-success?style=for-the-badge" alt="Status"/><img src="https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge" alt="License"/>
+    <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React"/>
+    <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+    <img src="https://img.shields.io/badge/Redux_Toolkit-Architecture-764ABC?style=for-the-badge&logo=redux&logoColor=white" alt="Redux Toolkit"/>
+    <img src="https://img.shields.io/badge/Vite-Dev_Environment-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"/>
+    <img src="https://img.shields.io/badge/Status-In_Progress-success?style=for-the-badge" alt="Status"/>
+    <img src="https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge" alt="License"/>
 </p>
 
 
