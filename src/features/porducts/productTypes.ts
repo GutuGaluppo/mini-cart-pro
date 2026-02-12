@@ -1,9 +1,0 @@
-type Product = {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  image: string;
-  stock: number;
-  updatedAt: string;
-};
