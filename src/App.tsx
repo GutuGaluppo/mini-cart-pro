@@ -1,22 +1,13 @@
 import { useEffect } from "react";
 import { useAppDispatch } from "./hooks/useAppDispatch";
 import { useAppSelector } from "./hooks/useAppSelector";
-// import { addToCart } from "./features/cart/cartSlice";
-// import {
-//   selectCartItems,
-//   selectCartTotal,
-//   selectTotalItems,
-// } from "./features/cart/cartSelectors";
-import { fetchProducts } from "./features/products/productThunk";
+import { fetchProducts } from "./features/products/productThunks";
+import { addToCart } from "./features/cart/cartSlice";
+import { selectAllProducts } from "./features/products/productSelectors";
 
 export function App() {
   const dispatch = useAppDispatch();
-  const products = useAppDispatch((state) => state.products);
-  const { items, status, error } = useAppSelector((state) => state.products);
-
-  // const items = useAppSelector(selectCartItems);
-  // const total = useAppSelector(selectCartTotal);
-  // const totalItems = useAppSelector(selectTotalItems);
+  const products = useAppSelector(selectAllProducts);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -26,46 +17,25 @@ export function App() {
     <div>
       <h1>Mini Cart Pro</h1>
 
-      <pre>{JSON.stringify(products, null, 2)}</pre>
-
-      <p>Status: {status}</p>
-
-      {status === "loading" && <p>Loading...</p>}
-      {status === "failed" && <p>Error: {error}</p>}
-
-      {status === "succeeded" &&
-        Object.values(items).map((product) => (
-          <div key={product.id}>
-            <h3>{product.title}</h3>
-            <p>${product.price}</p>
-          </div>
-        ))}
-
-      {/*<div>
-        <div>
-          <button
-            onClick={() => dispatch(addToCart({ productId: "1", price: 100 }))}
-          >
-            Add Product 1
-          </button>
+      {products.map((product) => (
+        <div key={product.id}>
+          <h3>{product.title}</h3>
+          <p>${product.price}</p>
 
           <button
-            onClick={() => dispatch(addToCart({ productId: "2", price: 200 }))}
+            onClick={() =>
+              dispatch(
+                addToCart({
+                  productId: product.id,
+                  price: product.price,
+                }),
+              )
+            }
           >
-            Add Product 2
-          </button>
-          <button
-            onClick={() => dispatch(addToCart({ productId: "3", price: 300 }))}
-          >
-            Add Product 3
+            Add to Cart
           </button>
         </div>
-
-        <p>Total Items: {totalItems}</p>
-        <p>Total Price: ${total.toFixed(2)}</p>
-
-        <pre>{JSON.stringify(items, null, 2)}</pre>
-      </div>*/}
+      ))}
     </div>
   );
 }

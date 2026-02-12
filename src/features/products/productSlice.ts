@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { Product } from "./productTypes";
-import { fetchProducts } from "./productThunk";
+import { fetchProducts } from "./productThunks";
 
 type ProductState = {
   items: Record<string, Product>;
