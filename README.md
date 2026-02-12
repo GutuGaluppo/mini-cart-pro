@@ -1,4 +1,15 @@
 # 🛒 Mini Cart Pro
+<p align="center">
+    <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React"/><img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/><img src="https://img.shields.io/badge/Redux_Toolkit-Architecture-764ABC?style=for-the-badge&logo=redux&logoColor=white" alt="Redux Toolkit"/><img src="https://img.shields.io/badge/Vite-Dev_Environment-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"/><img src="https://img.shields.io/badge/Status-In_Progress-success?style=for-the-badge" alt="Status"/><img src="https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge" alt="License"/>
+</p>
+
+
+---
+
+
+# 📸 Preview
+
+![Mini Cart Pro Screenshot](./public/screenshot.png)
 
 Mini Cart Pro is a frontend-focused e-commerce simulation built to explore professional state management architecture using **React, TypeScript, and Redux Toolkit**.
 
@@ -51,12 +62,61 @@ src/
   hooks/
 ```
 
+## 🔄 Data Flow Architecture
+
+UI (React Components)
+        ↓
+dispatch(action)
+        ↓
+Redux Slice / Thunk
+        ↓
+Service Layer (Mock API)
+        ↓
+Promise Resolution
+        ↓
+Reducer Updates State
+        ↓
+Middleware Persists Cart
+        ↓
+Store Updated
+        ↓
+Selectors Derive Data
+        ↓
+UI Re-renders
+
+This project follows a clear separation of concerns:
+- UI triggers actions
+- Thunks orchestrate async logic
+- Services simulate backend
+- Middleware handles persistence
+- Slices remain pure and predictable
+
+
 ### Layers
 
 - **UI Layer** → React components
 - **State Layer** → Redux slices and thunks
 - **Service Layer** → Backend simulation (mock API)
 - **Middleware Layer** → Cross-cutting concerns (persistence)
+
+---
+
+## 📚 Architectural Highlights
+
+### 1. Normalized State Design
+Products and cart items are stored using `Record<string, Entity>` patterns for O(1) lookup and scalability.
+
+### 2. Snapshot Pricing Strategy
+The cart stores `priceAtAddition` to preserve purchase intent and prepare for future conflict resolution.
+
+### 3. Custom Middleware Persistence
+Persistence is handled outside slices to maintain reducer purity.
+
+### 4. Async Flow with createAsyncThunk
+Products are fetched using strongly-typed async thunks with error handling and lifecycle states.
+
+### 5. Scalable Folder Structure
+The project follows a vertical slice + service layer architecture, ready for SSR migration.
 
 ---
 
@@ -113,6 +173,18 @@ This project is intentionally built step-by-step to explore:
 - Optimistic updates with rollback
 - Authentication simulation
 - Next.js migration (SSR-ready store setup)
+
+---
+
+## 🛣 Roadmap
+
+- [x] Async product fetching
+- [x] Cart slice with snapshot pricing
+- [x] Custom persistence middleware
+- [ ] Cart sync with backend
+- [ ] Conflict resolution (merge by quantity)
+- [ ] Authentication simulation
+- [ ] Next.js migration
 
 ---
 
