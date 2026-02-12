@@ -3,6 +3,9 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import type { Product } from "./productTypes";
 import { fetchProducts } from "./productThunks";
 
+/**
+ * Estado normalizado dos produtos.
+ */
 type ProductState = {
   items: Record<string, Product>;
   status: "idle" | "loading" | "succeeded" | "failed";
@@ -23,7 +26,6 @@ const productSlice = createSlice({
     builder
       .addCase(fetchProducts.pending, (state) => {
         state.status = "loading";
-        state.error = null;
       })
       .addCase(
         fetchProducts.fulfilled,
@@ -36,7 +38,7 @@ const productSlice = createSlice({
       )
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload || "Failed to fetch products";
+        state.error = action.payload ?? "Unknown error";
       });
   },
 });

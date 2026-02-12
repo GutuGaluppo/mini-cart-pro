@@ -1,5 +1,8 @@
 import type { Product } from "../features/products/productTypes";
 
+/**
+ * Mock de produtos simulando backend.
+ */
 const mockProducts: Product[] = [
   {
     id: "1",
@@ -21,12 +24,16 @@ const mockProducts: Product[] = [
   },
 ];
 
+/**
+ * Service layer não conhece Redux.
+ * Apenas executa lógica externa.
+ */
 export const productService = {
   async fetchProducts(): Promise<Product[]> {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(mockProducts);
-      }, 1000);
+      }, 800);
     });
   },
 };
